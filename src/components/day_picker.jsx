@@ -8,9 +8,12 @@ class DayPicker extends React.PureComponent {
   }
 
   render() {
-    console.log("Testing! from alex! WAIT ");
+    console.log("Testing! from alex! adsfsadWAIT alex is here ");
     return (
-      <div>Hello World</div>
+      <section>
+       <div>Hello World!! h2i !</div>
+        <span> some span here!!</span>
+        </section>
     );
   }
 }
