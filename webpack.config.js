@@ -7,13 +7,15 @@ const path = require('path');
 // };
 
 module.exports = {
-  context: path.join(__dirname, 'src'),
-  entry: [
-    './main.jsx',
-  ],
+  context: path.join(__dirname, "src"),
+  entry: ["./main.jsx"],
   output: {
-    path: path.join(__dirname, 'www'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, "www"),
+    filename: "bundle.js"
+  },
+  devServer: {
+    contentBase: "./www",
+    publicPath: "/output"
   },
   module: {
     rules: [
@@ -21,14 +23,14 @@ module.exports = {
         test: /\.jsx/,
         exclude: /node_modules/,
         use: {
-                loader: 'babel-loader',
-                options: { presets: ['react', 'es2015'] }
-             }
+          loader: "babel-loader",
+          options: { presets: ["react", "es2015"] }
+        }
       },
       {
-            test: /\.scss/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
-         }
-    ],
-  },
+        test: /\.scss/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
+  }
 };
