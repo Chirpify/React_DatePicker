@@ -1,4 +1,5 @@
 import React from 'react';
+import ShortcutHeader from './shortcut-header.jsx'
 
 class DayPicker extends React.PureComponent {
   constructor() {
@@ -10,10 +11,10 @@ class DayPicker extends React.PureComponent {
   render() {
     console.log("Testing! from alex! adsfsadWAIT alex is here ");
     return (
-      <section>
-       <div>Hello World!! h2i !</div>
-        <span> some span here!!</span>
-        </section>
+      <div>
+        <ShortcutHeader />
+      </div>
+
     );
   }
 }
