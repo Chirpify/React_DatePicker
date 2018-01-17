@@ -1,10 +1,15 @@
 
 const path = require('path');
 
+// devServer = {
+//    contentBase: './src',
+//    publicPath: '/output'
+// };
+
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: [
-    './main.js',
+    './main.jsx',
   ],
   output: {
     path: path.join(__dirname, 'www'),
@@ -13,12 +18,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
+        use: {
+                loader: 'babel-loader',
+                options: { presets: ['react', 'es2015'] }
+             }
       },
+      {
+            test: /\.scss/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+         }
     ],
   },
 };
