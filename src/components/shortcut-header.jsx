@@ -6,7 +6,7 @@ import classNames from 'classnames'
 class ShortcutHeader extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.toggleClass = this.toggleClass.bind(this);
+    // this.toggleClass = this.toggleClass.bind(this);
     this.state = {
       startDate: moment().subtract(24, 'hours').format(),
       endDate: moment().format(),
@@ -45,18 +45,23 @@ class ShortcutHeader extends React.PureComponent {
     ]
   }
 
-  toggleClass
+  // toggleClass
 
   render() {
 
-    var btnClass = classNames({
-      'button': true,
-      'active': this.state.predefinedHour.active
-    })
     return (
       <div>
         <div>{this.state.endDate} -- {this.state.startDate}</div>
-        <span className={btnClass} onClick={this.toggleClass}>custom</span>
+        <div>
+          {this.state.predefinedHours.map(function(hour, index){
+            var btnClass = classNames({
+              'button': true,
+              'btnActive': hour.active
+            })
+            return <li className={btnClass} key={index}>{hour.name}</li>
+          })}
+          <span className={btnClass} onClick={this.toggleClass}>custom</span>
+        </div>
       </div>
 
     );
