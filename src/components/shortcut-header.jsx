@@ -45,10 +45,17 @@ class ShortcutHeader extends React.PureComponent {
     ]
   }
 
-  // toggleClass
+  toggleClass(self, name) {
+    console.log(self, name)
+    this.setState({
+      // hour.active: !active;
+    })
+  }
+
+
 
   render() {
-
+    var self = this;
     return (
       <div>
         <div>{this.state.endDate} -- {this.state.startDate}</div>
@@ -58,9 +65,9 @@ class ShortcutHeader extends React.PureComponent {
               'button': true,
               'btnActive': hour.active
             })
-            return <li className={btnClass} key={index}>{hour.name}</li>
+            return <li className={btnClass} key={index} onClick={self.toggleClass.bind(self, hour.name)}>{hour.name}</li>
           })}
-          <span className={btnClass} onClick={this.toggleClass}>custom</span>
+          <span className={'button'} onClick={self.toggleClass}>custom</span>
         </div>
       </div>
 
