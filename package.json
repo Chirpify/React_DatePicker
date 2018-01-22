@@ -25,9 +25,11 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
     "moment": "^2.20.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
