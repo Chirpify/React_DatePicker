@@ -8,6 +8,7 @@ class ShortcutHeader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      customActive: false,
       startDate: moment().subtract(24, 'hours').format(),
       endDate: moment().format(),
     };
@@ -45,7 +46,7 @@ class ShortcutHeader extends React.PureComponent {
     ]
   }
 
-  toggleClass(name, self) {
+  toggleClass(name) {
     var hours = this.state.predefinedHours
     _.forEach(hours, function(h) {
       h.active = false;
@@ -55,6 +56,21 @@ class ShortcutHeader extends React.PureComponent {
     })
     result.active = true;
     this.setState({
+      customActive: false,
+      predefinedHours: hours
+    })
+    this.forceUpdate()
+
+
+  }
+
+  clickCustom() {
+    var hours = this.state.predefinedHours
+    _.forEach(hours, function(h) {
+      h.active = false;
+    })
+    this.setState({
+      customActive: true,
       predefinedHours: hours
     })
     this.forceUpdate()
@@ -77,7 +93,7 @@ class ShortcutHeader extends React.PureComponent {
             })
             return <li className={btnClass} key={index} onClick={self.toggleClass.bind(self, hour.name)}>{hour.name}</li>
           })}
-          <span className={'button'} onClick={self.toggleClass}>custom</span>
+          <span className={'button ' + (this.state.customActive ? 'btnActive' : '')} onClick={self.clickCustom.bind(self)}>custom</span>
         </div>
       </div>
 
