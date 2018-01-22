@@ -1,5 +1,6 @@
 import React from 'react';
 import ShortcutHeader from './shortcut-header.jsx'
+import CustomDayPicker from './custom-day-picker.jsx'
 
 class DayPicker extends React.PureComponent {
   constructor() {
@@ -13,6 +14,7 @@ class DayPicker extends React.PureComponent {
     return (
       <div>
         <ShortcutHeader />
+        <CustomDayPicker />
       </div>
 
     );
