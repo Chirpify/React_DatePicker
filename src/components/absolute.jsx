@@ -1,7 +1,7 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import Helmet from 'react-helmet';
-import 'react-day-picker/lib/style.css';
+// import 'react-day-picker/lib/style.css';
 
 class Absolute extends React.PureComponent {
 
