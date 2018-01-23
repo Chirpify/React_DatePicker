@@ -5,6 +5,7 @@ import '../styles/components/custom-day-picker.scss';
 class CustomDayPicker extends React.PureComponent {
 
   constructor(props) {
+    console.log('hi')
     super(props);
     this.state = {
       customActive: this.props.customActive,

@@ -7,6 +7,7 @@ import _ from 'lodash'
 class ShortcutHeader extends React.PureComponent {
   constructor(props) {
     super(props);
+    console.log(this.props)
     this.state = {
       customActive: this.props.customActive,
       startDate: moment().subtract(24, 'hours').format(),
@@ -59,12 +60,14 @@ class ShortcutHeader extends React.PureComponent {
       customActive: false,
       predefinedHours: hours
     })
+    this.props.hideCustomDayPicker();
     this.forceUpdate()
 
 
   }
 
   clickCustom() {
+
     var hours = this.state.predefinedHours
     _.forEach(hours, function(h) {
       h.active = false;
@@ -73,6 +76,8 @@ class ShortcutHeader extends React.PureComponent {
       customActive: true,
       predefinedHours: hours
     })
+
+    this.props.showCustomDayPicker();
     this.forceUpdate()
 
 
