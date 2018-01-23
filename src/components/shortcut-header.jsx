@@ -8,7 +8,7 @@ class ShortcutHeader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      customActive: false,
+      customActive: this.props.customActive,
       startDate: moment().subtract(24, 'hours').format(),
       endDate: moment().format(),
     };

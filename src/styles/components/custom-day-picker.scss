@@ -5,9 +5,14 @@
   border-radius: 5px;
   padding: 20px;
   color: white;
+  display: none;
 
 }
 
 .btnActive {
   text-decoration: underline;
+}
+
+.show-custom-day-picker {
+  display: inline-block;
 }

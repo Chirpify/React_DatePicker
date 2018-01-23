@@ -6,18 +6,20 @@ class DayPicker extends React.PureComponent {
   constructor() {
     super();
     this.state = {
+      customActive: false
     };
   }
 
   render() {
-    console.log("Testing! from alex! adsfsadWAIT alex is here ");
     return (
       <div>
-        <ShortcutHeader />
-        <CustomDayPicker />
+        <ShortcutHeader customActive = {this.state.customActive} />
+        <CustomDayPicker className={this.state.customActive? "" : 'show-custom-day-picker'} customActive = {this.state.customActive}/>
       </div>
 
     );
   }
 }
+
+
 export default DayPicker;
