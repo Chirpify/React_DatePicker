@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/components/shortcut-header.scss';
 import '../styles/components/custom-day-picker.scss';
+import Absolute from './absolute.jsx'
+
 
 class CustomDayPicker extends React.PureComponent {
 
@@ -28,6 +30,9 @@ class CustomDayPicker extends React.PureComponent {
         <div>
           <span className={'button ' + (this.state.absolute? 'btnActive' : '')} onClick={this.toggleAbsolute.bind(this, true)}>Absolute</span>
           <span className={'button ' + (this.state.absolute? '' : 'btnActive')} onClick={this.toggleAbsolute.bind(this, false)}>Relative</span>
+        </div>
+        <div>
+          <Absolute />
         </div>
 
 
