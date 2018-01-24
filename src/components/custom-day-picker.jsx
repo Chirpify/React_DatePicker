@@ -33,8 +33,8 @@ class CustomDayPicker extends React.PureComponent {
           <span className={'button ' + (this.state.absolute? '' : 'btnActive')} onClick={this.toggleAbsolute.bind(this, false)}>Relative</span>
         </div>
         <div>
-          {/* <Absolute /> */}
-          <Relative />
+          {this.state.absolute && <Absolute />}
+          {!this.state.absolute && <Relative />}
 
         </div>
 
