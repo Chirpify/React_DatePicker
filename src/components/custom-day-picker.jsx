@@ -35,7 +35,6 @@ class CustomDayPicker extends React.PureComponent {
         <div>
           {this.state.absolute && <Absolute />}
           {!this.state.absolute && <Relative />}
-
         </div>
 
 
