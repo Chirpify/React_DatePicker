@@ -3,18 +3,16 @@ import DayPicker, { DateUtils } from 'react-day-picker';
 import Helmet from 'react-helmet';
 import 'react-day-picker/lib/style.css';
 
-class Absolute extends React.PureComponent {
-
-  // static defaultProps = {
-  //   numberOfMonths: 2,
-  // }
-
+class Absolute extends React.Component {
   constructor(props) {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
     this.state = this.getInitialState();
   }
+
+
+
   getInitialState() {
     return {
       from: undefined,
@@ -31,7 +29,7 @@ class Absolute extends React.PureComponent {
 
 
   render() {
-    console.log('butter')
+    console.log('butter', this.props, this.props.numberOfMonths);
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
     return (
@@ -82,4 +80,7 @@ class Absolute extends React.PureComponent {
   }
 }
 
+Absolute.defaultProps = {
+  numberOfMonths: 2
+}
 export default Absolute
