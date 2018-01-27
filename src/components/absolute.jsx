@@ -11,8 +11,6 @@ class Absolute extends React.Component {
     this.state = this.getInitialState();
   }
 
-
-
   getInitialState() {
     return {
       from: undefined,
@@ -29,12 +27,11 @@ class Absolute extends React.Component {
 
 
   render() {
-    console.log('butter', this.props, this.props.numberOfMonths);
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
     return (
       <div className="RangeExample">
-        <p>
+        {/* <p>
           {!from && !to && 'Please select the first day.'}
           {from && !to && 'Please select the last day.'}
           {from &&
@@ -47,7 +44,7 @@ class Absolute extends React.Component {
                 Reset
               </button>
             )}
-        </p>
+        </p> */}
         <DayPicker
           className="Selectable"
           numberOfMonths={this.props.numberOfMonths}
@@ -58,11 +55,20 @@ class Absolute extends React.Component {
         <Helmet>
           <style>{`
   .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-    background-color: #f0f8ff !important;
-    color: #4a90e2;
+    background-color: #fff !important;
+    color: #28b5e1;
   }
   .Selectable .DayPicker-Day {
     border-radius: 0 !important;
+  }
+
+  .DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+    background-color: #28b5e1 !important;
+  }
+
+  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    background-color: #28b5e1 !important;
+
   }
   .Selectable .DayPicker-Day--start {
     border-top-left-radius: 50% !important;
@@ -74,6 +80,14 @@ class Absolute extends React.Component {
   }
 `}</style>
         </Helmet>
+
+        <div className="float-right">
+          <span className={'link-btn'}>Cancel</span>
+          {/* <span onClick={this.handleResetClick}>Reset</span> */}
+          <span className={'blue-sqaure-btn'}>Apply</span>
+        </div>
+
+
       </div>
     );
 

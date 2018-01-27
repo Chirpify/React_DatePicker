@@ -10,3 +10,24 @@
 .btnActive {
   text-decoration: underline;
 }
+
+.link-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.blue-sqaure-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #28b5e1;
+  &:hover {
+    background-color: darken(#28b5e1, 5%);
+  }
+}
+
+.float-right {
+  float: right;
+}
