@@ -25,14 +25,10 @@ class CustomDayPicker extends React.PureComponent {
   }
 
   cancelCustom() {
-    console.log('char')
-    this.setState(
-      {
-        customActive: false
-      }
-    );
+    this.props.cancelCustom()
     this.forceUpdate()
   }
+
 
   render() {
     return (
@@ -42,8 +38,13 @@ class CustomDayPicker extends React.PureComponent {
           <span className={'button ' + (this.state.absolute? '' : 'btnActive')} onClick={this.toggleAbsolute.bind(this, false)}>Relative</span>
         </div>
         <div>
-          {this.state.absolute && <Absolute cancelCustom={this.cancelCustom.bind(this)}/>}
+          {this.state.absolute && <Absolute />}
           {!this.state.absolute && <Relative />}
+        </div>
+
+        <div className="float-right">
+          <span className={'link-btn'} onClick={this.cancelCustom.bind(this)}>Cancel</span>
+          <span className={'blue-sqaure-btn'}>Apply</span>
         </div>
 
 

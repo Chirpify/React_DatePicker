@@ -23,13 +23,19 @@ class DayPicker extends React.PureComponent {
     })
   }
 
+  cancelCustom() {
+    this.setState({
+      customActive: false
+    })
+  }
+
   render() {
     console.log(this.state.customActive)
     return (
       <div>
         <ShortcutHeader customActive = {this.state.customActive} showCustomDayPicker={this.showCustomDayPicker.bind(this)} hideCustomDayPicker={this.hideCustomDayPicker.bind(this)}/>
         {this.state.customActive && <div>
-          <CustomDayPicker customActive = {this.state.customActive}/>
+          <CustomDayPicker customActive = {this.state.customActive} cancelCustom={this.cancelCustom.bind(this)}/>
         </div>}
       </div>
 
