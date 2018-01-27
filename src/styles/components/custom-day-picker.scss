@@ -1,7 +1,7 @@
 .dayPickerContainer {
   background-color: #444;
-  width: 600px;
-  height: 400px;
+  width: 550px;
+  height: 350px;
   border-radius: 5px;
   padding: 20px;
   color: white;
@@ -29,5 +29,7 @@
 }
 
 .float-right {
+  margin-top: 20px;
+  margin-right: 40px;
   float: right;
 }

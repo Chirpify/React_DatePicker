@@ -82,7 +82,7 @@ class Absolute extends React.Component {
         </Helmet>
 
         <div className="float-right">
-          <span className={'link-btn'}>Cancel</span>
+          <span className={'link-btn'} onClick={this.props.cancelCustom.bind(this)}>Cancel</span>
           {/* <span onClick={this.handleResetClick}>Reset</span> */}
           <span className={'blue-sqaure-btn'}>Apply</span>
         </div>

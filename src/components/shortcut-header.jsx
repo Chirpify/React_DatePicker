@@ -88,7 +88,7 @@ class ShortcutHeader extends React.PureComponent {
   render() {
     var self = this;
     return (
-      <div>
+      <div className='container'>
         <div>{this.state.endDate} -- {this.state.startDate}</div>
         <div>
           {this.state.predefinedHours.map(function(hour, index){

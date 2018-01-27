@@ -8,7 +8,6 @@ import Relative from './relative.jsx'
 class CustomDayPicker extends React.PureComponent {
 
   constructor(props) {
-    console.log('hi')
     super(props);
     this.state = {
       customActive: this.props.customActive,
@@ -25,6 +24,16 @@ class CustomDayPicker extends React.PureComponent {
     )
   }
 
+  cancelCustom() {
+    console.log('char')
+    this.setState(
+      {
+        customActive: false
+      }
+    );
+    this.forceUpdate()
+  }
+
   render() {
     return (
       <div className={'dayPickerContainer'}>
@@ -33,7 +42,7 @@ class CustomDayPicker extends React.PureComponent {
           <span className={'button ' + (this.state.absolute? '' : 'btnActive')} onClick={this.toggleAbsolute.bind(this, false)}>Relative</span>
         </div>
         <div>
-          {this.state.absolute && <Absolute />}
+          {this.state.absolute && <Absolute cancelCustom={this.cancelCustom.bind(this)}/>}
           {!this.state.absolute && <Relative />}
         </div>
 
