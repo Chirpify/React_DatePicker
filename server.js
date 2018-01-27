@@ -7,7 +7,7 @@ const app = express();
 const compiler = webpack(webpackConfig);
 
 app.use(express.static(__dirname + '/www'));
-
+console.log("in server.js")
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
