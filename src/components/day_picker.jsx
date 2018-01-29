@@ -2,12 +2,17 @@ import React from 'react';
 import ShortcutHeader from './shortcut-header.jsx'
 import CustomDayPicker from './custom-day-picker.jsx'
 import '../styles/components/app.scss';
+import moment from 'moment';
+
 
 class DayPicker extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      customActive: false
+      customActive: false,
+      startDate: moment().subtract(24, 'hours').format(),
+      endDate: moment().format(),
+
     };
   }
 
@@ -23,6 +28,15 @@ class DayPicker extends React.PureComponent {
     })
   }
 
+  toggleDate(n) {
+    console.log(n, 'hi')
+    var newDate = moment().subtract(n, 'hours').format();
+    this.setState({
+      startDate: newDate,
+    })
+
+  }
+
   cancelCustom() {
     this.setState({
       customActive: false
@@ -30,10 +44,11 @@ class DayPicker extends React.PureComponent {
   }
 
   render() {
-    console.log(this.state.customActive)
+    console.log(this.state.startDate)
     return (
       <div>
-        <ShortcutHeader customActive = {this.state.customActive} showCustomDayPicker={this.showCustomDayPicker.bind(this)} hideCustomDayPicker={this.hideCustomDayPicker.bind(this)}/>
+        {this.state.startDate} - {this.state.endDate}
+        <ShortcutHeader customActive = {this.state.customActive} startDate={this.state.startDate} endDate={this.state.endDate} toggleDate={this.toggleDate.bind(this)} showCustomDayPicker={this.showCustomDayPicker.bind(this)} hideCustomDayPicker={this.hideCustomDayPicker.bind(this)}/>
         {this.state.customActive && <div>
           <CustomDayPicker customActive = {this.state.customActive} cancelCustom={this.cancelCustom.bind(this)}/>
         </div>}

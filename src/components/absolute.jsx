@@ -31,7 +31,7 @@ class Absolute extends React.Component {
     const modifiers = { start: from, end: to };
     return (
       <div className="RangeExample">
-        {/* <p>
+        <p>
           {!from && !to && 'Please select the first day.'}
           {from && !to && 'Please select the last day.'}
           {from &&
@@ -44,7 +44,7 @@ class Absolute extends React.Component {
                 Reset
               </button>
             )}
-        </p> */}
+        </p>
         <DayPicker
           className="Selectable"
           numberOfMonths={this.props.numberOfMonths}

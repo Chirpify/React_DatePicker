@@ -44,7 +44,7 @@ class CustomDayPicker extends React.PureComponent {
 
         <div className="float-right">
           <span className={'link-btn'} onClick={this.cancelCustom.bind(this)}>Cancel</span>
-          <span className={'blue-sqaure-btn'}>Apply</span>
+          <span className={'blue-sqaure-btn'} onClick={this.applyDaysSelected.bind(this)}>Apply</span>
         </div>
 
 

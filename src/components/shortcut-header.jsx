@@ -1,17 +1,15 @@
 import React from 'react';
 import '../styles/components/shortcut-header.scss';
-import moment from 'moment';
 import classNames from 'classnames'
 import _ from 'lodash'
 
 class ShortcutHeader extends React.PureComponent {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       customActive: this.props.customActive,
-      startDate: moment().subtract(24, 'hours').format(),
-      endDate: moment().format(),
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
     };
     this.state.predefinedHours = [
       {
@@ -47,7 +45,7 @@ class ShortcutHeader extends React.PureComponent {
     ]
   }
 
-  toggleClass(name) {
+  toggleDate(name,n) {
     var hours = this.state.predefinedHours
     _.forEach(hours, function(h) {
       h.active = false;
@@ -61,6 +59,7 @@ class ShortcutHeader extends React.PureComponent {
       predefinedHours: hours
     })
     this.props.hideCustomDayPicker();
+    this.props.toggleDate(n)
     this.forceUpdate()
 
 
@@ -89,14 +88,13 @@ class ShortcutHeader extends React.PureComponent {
     var self = this;
     return (
       <div className='container'>
-        <div>{this.state.endDate} -- {this.state.startDate}</div>
         <div>
           {this.state.predefinedHours.map(function(hour, index){
             var btnClass = classNames({
               'button': true,
               'btnActive': hour.active
             })
-            return <li className={btnClass} key={index} onClick={self.toggleClass.bind(self, hour.name)}>{hour.name}</li>
+            return <li className={btnClass} key={index} onClick={self.toggleDate.bind(self, hour.name, hour.hours)}>{hour.name}</li>
           })}
           <span className={'button ' + (this.state.customActive ? 'btnActive' : '')} onClick={self.clickCustom.bind(self)}>custom</span>
         </div>
