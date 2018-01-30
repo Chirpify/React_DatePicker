@@ -29,6 +29,8 @@ class CustomDayPicker extends React.PureComponent {
     this.forceUpdate()
   }
 
+  
+
 
   render() {
     return (

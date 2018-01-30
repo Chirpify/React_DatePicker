@@ -20,6 +20,10 @@ class Absolute extends React.Component {
   handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
+    if(range.from && range.to) {
+      this.props.changeDate(range.from, range.to);
+    }
+    console.log(range)
   }
   handleResetClick() {
     this.setState(this.getInitialState());
