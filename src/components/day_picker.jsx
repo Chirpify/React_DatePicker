@@ -7,8 +7,8 @@ import moment from 'moment';
 
 
 class DayPicker extends React.PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       customActive: false,
       startDate: moment().subtract(24, 'hours').format(),
@@ -17,7 +17,133 @@ class DayPicker extends React.PureComponent {
       newEndDate: undefined
 
     };
-  }
+
+    // this.props.relativeTime = [
+    //   {
+    //     type: "hours",
+    //     length: 1,
+    //     name: "1",
+    //     active: false
+    //   },
+    //   {
+    //     type: "hours",
+    //     length: 2,
+    //     name: "2",
+    //     active: false
+    //   },
+    //   {
+    //     type: "hours",
+    //     length: 3,
+    //     name: "3",
+    //     active: false
+    //   },
+    //   {
+    //     type: "hours",
+    //     length: 6,
+    //     name: "6",
+    //     active: true
+    //   },
+    //   {
+    //     type: "hours",
+    //     length: 8,
+    //     name: "8",
+    //     active: false
+    //   },
+    //   {
+    //     type: "hours",
+    //     length: 12,
+    //     name: "12",
+    //     active: false
+    //   },
+    //   {
+    //     type: "days",
+    //     length: 1,
+    //     name: "1",
+    //     active: false
+    //   },
+    //   {
+    //     type: "days",
+    //     length: 2,
+    //     name: "2",
+    //     active: false
+    //   },
+    //   {
+    //     type: "days",
+    //     length: 3,
+    //     name: "3",
+    //     active: false
+    //   },
+    //   {
+    //     type: "days",
+    //     length: 4,
+    //     name: "4",
+    //     active: true
+    //   },
+    //   {
+    //     type: "days",
+    //     length: 5,
+    //     name: "5",
+    //     active: false
+    //   },
+    //   {
+    //     type: "days",
+    //     length: 6,
+    //     name: "6",
+    //     active: false
+    //   },
+    //   {
+    //     type: "weeks",
+    //     length: 1,
+    //     name: "1",
+    //     active: false
+    //   },
+    //   {
+    //     type: "weeks",
+    //     length: 2,
+    //     name: "2",
+    //     active: false
+    //   },
+    //   {
+    //     type: "weeks",
+    //     length: 4,
+    //     name: "4",
+    //     active: false
+    //   },
+    //   {
+    //     type: "weeks",
+    //     length: 6,
+    //     name: "6",
+    //     active: true
+    //   },
+    //   {
+    //     type: "months",
+    //     length: 3,
+    //     name: "3",
+    //     active: false
+    //   },
+    //   {
+    //     type: "months",
+    //     length: 6,
+    //     name: "6",
+    //     active: false
+    //   },
+    //   {
+    //     type: "months",
+    //     length: 12,
+    //     name: "12",
+    //     active: false
+    //   },
+    //   {
+    //     type: "months",
+    //     length: 15,
+    //     name: "15",
+    //     active: true
+    //   }
+    // ]
+
+  };
+
+
 
   showCustomDayPicker() {
     this.setState({
@@ -70,142 +196,6 @@ class DayPicker extends React.PureComponent {
     })
   }
 
-  var relativeTime = [
-    {
-      type: "hours"
-      length: 1,
-      name: "1",
-      active: false
-    },
-    {
-      type: "hours"
-      length: 2,
-      name: "2",
-      active: false
-    },
-    {
-      type: "hours"
-      length: 3,
-      name: "3",
-      active: false
-    },
-    {
-      type: "hours"
-      length: 6,
-      name: "6",
-      active: true
-    },
-    {
-      type: "hours"
-      length: 8,
-      name: "8",
-      active: false
-    },
-    {
-      type: "hours"
-      length: 12,
-      name: "12",
-      active: false
-    },
-
-
-
-    {
-      type: "days"
-      length: 1,
-      name: "1",
-      active: false
-    },
-    {
-      type: "days"
-      length: 2,
-      name: "2",
-      active: false
-    },
-    {
-      type: "days"
-      length: 3,
-      name: "3",
-      active: false
-    },
-    {
-      type: "days"
-      length: 4,
-      name: "4",
-      active: true
-    },
-    {
-      type: "days"
-      length: 5,
-      name: "5",
-      active: false
-    },
-    {
-      type: "days"
-      length: 6,
-      name: "6",
-      active: false
-    },
-
-
-    {
-      type: "weeks"
-      length: 1,
-      name: "1",
-      active: false
-    },
-    {
-      type: "weeks"
-      length: 2,
-      name: "2",
-      active: false
-    },
-    {
-      type: "weeks"
-      length: 4,
-      name: "4",
-      active: false
-    },
-    {
-      type: "weeks"
-      length: 6,
-      name: "6",
-      active: true
-    },
-
-
-
-
-    {
-      type: "months"
-      length: 3,
-      name: "3",
-      active: false
-    },
-    {
-      type: "months"
-      length: 6,
-      name: "6",
-      active: false
-    },
-    {
-      type: "months"
-      length: 12,
-      name: "12",
-      active: false
-    },
-    {
-      type: "months"
-      length: 15,
-      name: "15",
-      active: true
-    },
-
-
-
-
-
-  ];
 
   render() {
     console.log(this.state.startDate, this.state.endDate)
@@ -220,7 +210,9 @@ class DayPicker extends React.PureComponent {
           </div>
           <div>
             {this.state.absolute && <Absolute changeDate={this.changeDate.bind(this)}/>}
-            {!this.state.absolute && <Relative relativeTime={relativeTime}/>}
+            {/* {!this.state.absolute && <Relative relativeTime={this.props.relativeTime}/>} */}
+            {!this.state.absolute && <Relative />}
+
           </div>
 
           <div className="float-right">
@@ -231,7 +223,7 @@ class DayPicker extends React.PureComponent {
         </div>}
       </div>
 
-    );
+    )
   }
 }
 
