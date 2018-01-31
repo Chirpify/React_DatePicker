@@ -30,7 +30,7 @@ export default class Relative extends React.PureComponent {
               type: "hours",
               length: 6,
               name: "6",
-              active: true
+              active: false
             },
             {
               type: "hours",
@@ -66,7 +66,7 @@ export default class Relative extends React.PureComponent {
               type: "days",
               length: 4,
               name: "4",
-              active: true
+              active: false
             },
             {
               type: "days",
@@ -102,7 +102,7 @@ export default class Relative extends React.PureComponent {
               type: "weeks",
               length: 6,
               name: "6",
-              active: true
+              active: false
             },
             {
               type: "months",
@@ -126,13 +126,26 @@ export default class Relative extends React.PureComponent {
               type: "months",
               length: 15,
               name: "15",
-              active: true
+              active: false
             }
           ]
         };
   }
 
   toggleRelativeDate(length, type) {
+    var result = this.state.relativeTime;
+    _.forEach(result, function(r) {
+      r.active = false;
+    })
+
+    var activeButton = _.find(result, function(r) {
+      return r.length == length && r.type == type
+    })
+    activeButton.active = true
+    this.setState({
+      relativeTime: result
+    })
+
 
     this.props.toggleRelativeDate(length, type);
   }
@@ -147,7 +160,7 @@ export default class Relative extends React.PureComponent {
             <span className={'type'}>Hours</span>
             <span>{self.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'hours') {
-                return (<button key={index} className={"relative-time"} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>);
+                return (<button key={index} className={"relative-time " + (hour.active? "active" : "")} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>);
               }
             })}</span>
           </div>
@@ -156,7 +169,7 @@ export default class Relative extends React.PureComponent {
             <span className={'type'}>Days</span>
             <span>{this.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'days') {
-                return <button key={index} className={"relative-time"} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>
+                return <button key={index} className={"relative-time " + (hour.active? "active" : "")} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>
               }
             })}</span>
           </div>
@@ -165,7 +178,7 @@ export default class Relative extends React.PureComponent {
             <span className={'type'}>Weeks</span>
             <span>{this.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'weeks') {
-                return <button key={index} className={"relative-time"} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>
+                return <button key={index} className={"relative-time " + (hour.active? "active" : "")} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>
               }
             })}</span>
           </div>
@@ -174,7 +187,7 @@ export default class Relative extends React.PureComponent {
             <span className={'type'}>Months</span>
             <span>{this.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'months') {
-                return <button key={index} className={'relative-time'} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>
+                return <button key={index} className={"relative-time " + (hour.active? "active" : "")} onClick={self.toggleRelativeDate.bind(self, hour.length, hour.type)}>{hour.name}</button>
               }
             })}</span>
           </div>

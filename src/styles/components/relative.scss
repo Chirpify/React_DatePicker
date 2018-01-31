@@ -19,7 +19,17 @@
   &:hover {
     background-color: #28b5e1;
   }
+  &.active {
+    background-color: #28b5e1;
+
+  }
+  &:focus {
+    outline: none;
+  }
+
 }
+
+
 
 .type {
   display: inline-block;
