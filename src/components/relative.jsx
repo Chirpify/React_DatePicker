@@ -141,13 +141,13 @@ export default class Relative extends React.PureComponent {
     return (
       <div>
         <div>
-          <div>
-            <span>Hours</span>
-            <span>{self.state.relativeTime.map(function(index, hour) {
+          <div className={'relative-time-div'}>
+            <span className={'type'}>Hours</span>
+            <span>{self.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'hours') {
                 return (<button key={index} className={"relative-time"}>{hour.name}</button>);
               }
-            })}
+            })}</span>
           </div>
 
           <div className={'relative-time-div'}>

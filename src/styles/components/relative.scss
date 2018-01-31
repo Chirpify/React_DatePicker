@@ -1,18 +1,24 @@
 .relative-time-div{
-  margin: 16px;
-  height: 40px;
+  // margin: 16px;
+  // height: 40px;
 }
 
 
 .relative-time {
   width: 40px;
   height: 40px;
+  cursor: pointer;
+  background-color: inherit;
+  color: #fff;
   // display: inline-block;
 
   // padding: 16px;
-  border: 1px solid;
+  border: 1px solid white;
   border-radius: 5px;
   margin: 8px;
+  &:hover {
+    background-color: #28b5e1;
+  }
 }
 
 .type {
