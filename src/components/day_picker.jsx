@@ -57,7 +57,8 @@ class DayPicker extends React.PureComponent {
   applyDaysSelected() {
     this.setState({
       startDate: this.state.newStartDate,
-      endDate: this.state.newEndDate
+      endDate: this.state.newEndDate,
+      customActive: false,
       }
     )
 

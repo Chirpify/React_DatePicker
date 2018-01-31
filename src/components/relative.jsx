@@ -131,9 +131,6 @@ export default class Relative extends React.PureComponent {
           ]
         };
   }
-  componentDidMount() {
-    console.log("mounted!")
-  }
 
   toggleRelativeDate(length, type) {
 
