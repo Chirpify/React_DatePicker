@@ -70,6 +70,14 @@ class DayPicker extends React.PureComponent {
     })
   }
 
+  toggleRelativeDate(length, type) {
+    var newStartDate = moment().subtract(length, type).format();
+    this.setState({
+      newStartDate: newStartDate,
+      newEndDate: moment().format()
+    })
+  }
+
 
   render() {
     console.log(this.state.startDate, this.state.endDate)
@@ -85,7 +93,7 @@ class DayPicker extends React.PureComponent {
           <div>
             {this.state.absolute && <Absolute changeDate={this.changeDate.bind(this)}/>}
             {/* {!this.state.absolute && <Relative relativeTime={this.props.relativeTime}/>} */}
-            {!this.state.absolute && <Relative />}
+            {!this.state.absolute && <Relative toggleRelativeDate={this.toggleRelativeDate.bind(this)} />}
 
           </div>
 
