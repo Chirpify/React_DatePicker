@@ -1,5 +1,6 @@
 import React from 'react';
-import _ from 'lodash'
+import _ from 'lodash';
+import '../styles/components/relative.scss';
 
 
 export default class Relative extends React.PureComponent {
@@ -133,7 +134,7 @@ export default class Relative extends React.PureComponent {
   componentDidMount() {
     console.log("mounted!")
   }
-  
+
   render() {
     var self = this;
     console.log('testing', self.state)
@@ -144,34 +145,34 @@ export default class Relative extends React.PureComponent {
             <span>Hours</span>
             <span>{self.state.relativeTime.map(function(index, hour) {
               if(hour.type == 'hours') {
-                return <span key={index}>{hour.name}</span>
+                return (<button key={index} className={"relative-time"}>{hour.name}</button>);
               }
-            })}</span>
+            })}
           </div>
 
-          <div>
-            <span>Days</span>
-            <span>{self.state.relativeTime.map(function(index, hour) {
+          <div className={'relative-time-div'}>
+            <span className={'type'}>Days</span>
+            <span>{this.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'days') {
-                return <span key={index}>{hour.name}</span>
+                return <button key={index} className={"relative-time"}>{hour.name}</button>
               }
             })}</span>
           </div>
 
-          <div>
-            <span>Weeks</span>
-            <span>{self.state.relativeTime.map(function(index, hour) {
+          <div className={'relative-time-div'}>
+            <span className={'type'}>Weeks</span>
+            <span>{this.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'weeks') {
-                return <span key={index}>{hour.name}</span>
+                return <button key={index} className={"relative-time"}>{hour.name}</button>
               }
             })}</span>
           </div>
 
-          <div>
-            <span>Months</span>
-            <span>{self.state.relativeTime.map(function(index, hour) {
+          <div className={'relative-time-div'}>
+            <span className={'type'}>Months</span>
+            <span>{this.state.relativeTime.map(function(hour, index) {
               if(hour.type == 'months') {
-                return <span key={index}>{hour.name}</span>
+                return <button key={index} className={'relative-time'}>{hour.name}</button>
               }
             })}</span>
           </div>
